@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+.content{
+    text-align: center;
+}
+
+table{
+    display: flex;
+    justify-content: center;
+
+}
+
+tbody{
+    border: 1px solid black;
+
+}
+
+th{
+    border: 1px solid black;
+
+}
+td{
+    border: 1px solid black;
+
+}
