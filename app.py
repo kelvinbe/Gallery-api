@@ -29,10 +29,6 @@ def getall_images():
 @app.route('/', methods=['POST'])
 def upload_image():
     file = request.files['file']
-    if 'file' not in request.files:
-        return redirect(request.url)
-    if file.filename == '':
-        return redirect(request.url)
     if file:
         filename = secure_filename(file.filename)
         mimetype = file.mimetype
@@ -46,7 +42,7 @@ def upload_image():
 def display_image(id):
     image = Img.query.filter_by(id=id).first()
     if not image:
-        return 'No img with that id'
+        return 'No image with that id'
     return Response(image.img, mimetype=image.mimetype)
 
 if __name__ == "__main__":
