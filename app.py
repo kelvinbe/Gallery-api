@@ -15,6 +15,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db_init(app)
 
 
+@app.route('/', methods=['GET'])
+def getall_images():
+    try:
+        images = Img.query.order_by(Img.date_created).all()
+        print(images)
+        return render_template('index.html', images=images)
+    except:
+        return render_template('index.html')
+
 
 
 @app.route('/', methods=['POST'])
@@ -35,7 +44,6 @@ def upload_image():
 
 @app.route('/show/<int:id>', methods=['GET'])
 def display_image(id):
-    #print('display_image filename: ' + filename)
     image = Img.query.filter_by(id=id).first()
     if not image:
         return 'No img with that id'
