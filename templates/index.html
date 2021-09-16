@@ -14,9 +14,8 @@
        
         {% for image in images %}
         <tr>
-            <td><img src="{{url_for('static', filename='MD.png')}}"></td>
+            <td>This Image {{image.id}} was uploaded on </td>
             <td>{{ image.date_created.date()}}</td>
-            <td> <a href="/delete/{{task.id}}">Delete</a><br><a href="/update/{{task.id}}">Update</a></td>
         </tr>
         {% endfor %}
     </table>

@@ -39,7 +39,7 @@ def upload_image():
         img = Img(img=file.read(), mimetype=mimetype, name=filename)
         db.session.add(img)
         db.session.commit()
-        return 'Img has been uploaded!'
+        return 'Image has been uploaded!'
 
 
 @app.route('/show/<int:id>', methods=['GET'])
